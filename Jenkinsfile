@@ -4,7 +4,7 @@ pipeline {
   agent {
     kubernetes {
       idleMinutes 10
-      label uniqueLabel('dbadmin')
+      label uniqueLabel('node_exporter')
       // ci container serves as a base image in a CI context to build, test & containerize projects. 
       yaml libraryResource('podtemplates/template.yaml').replace("{container}",'ci').replace("{tag}",'1.2.1')
       defaultContainer 'ci'
